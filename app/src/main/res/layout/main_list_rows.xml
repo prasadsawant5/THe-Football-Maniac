@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/iv_league_logo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/tv_league_games"
+        android:layout_toStartOf="@+id/tv_league_teams"
+        android:layout_toLeftOf="@+id/tv_league_teams" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/tv_league_title"
+        android:layout_marginTop="14dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="114dp"
+        android:layout_marginStart="114dp"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tv_league_teams"
+        android:layout_below="@+id/tv_league_title"
+        android:layout_alignLeft="@+id/tv_league_title"
+        android:layout_alignStart="@+id/tv_league_title"
+        android:layout_marginTop="14dp"
+        android:textSize="10sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tv_league_games"
+        android:layout_below="@+id/tv_league_teams"
+        android:layout_alignLeft="@+id/tv_league_teams"
+        android:layout_alignStart="@+id/tv_league_teams"
+        android:layout_marginTop="16dp"
+        android:textSize="10sp" />
+</RelativeLayout>

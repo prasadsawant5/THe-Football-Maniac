@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">The Football Maniac</string>
+    <string name="total_teams">Total number of teams: </string>
+    <string name="total_games">Total number of games: </string>
+
+    <string name="no_internet">No internet connection found.</string>
+
+    <string name="bundesliga">Bundesliga</string>
+    <string name="ligue1">Ligue 1</string>
+    <string name="ligue2">Ligue 2</string>
+    <string name="premier_league">Premier League</string>
+    <string name="primera_division">Primera Division</string>
+    <string name="segunda_division">Segunda Division</string>
+    <string name="serie_a">Serie A</string>
+    <string name="primeira_liga">Primeira Liga</string>
+    <string name="eredivisie">Eredivisie</string>
+    <string name="champions_league">Champions League</string>
+</resources>
