@@ -12,7 +12,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignBottom="@+id/tv_league_games"
         android:layout_toStartOf="@+id/tv_league_teams"
-        android:layout_toLeftOf="@+id/tv_league_teams" />
+        android:layout_toLeftOf="@+id/tv_league_teams"
+        android:layout_margin="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,13 +21,13 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/tv_league_title"
-        android:layout_marginTop="14dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp"
         android:layout_marginLeft="114dp"
-        android:layout_marginStart="114dp"
-        android:textSize="15sp" />
+        android:layout_marginStart="113dp"
+        android:textSize="15sp"
+        android:textColor="@color/colorGreenLight"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,7 +38,8 @@
         android:layout_alignLeft="@+id/tv_league_title"
         android:layout_alignStart="@+id/tv_league_title"
         android:layout_marginTop="14dp"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        android:textColor="@color/colorGreenLight" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,5 +50,7 @@
         android:layout_alignLeft="@+id/tv_league_teams"
         android:layout_alignStart="@+id/tv_league_teams"
         android:layout_marginTop="16dp"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        android:textColor="@color/colorGreenLight"
+        android:layout_marginBottom="5dp" />
 </RelativeLayout>

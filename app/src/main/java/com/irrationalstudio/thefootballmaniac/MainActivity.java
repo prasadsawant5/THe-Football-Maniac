@@ -1,24 +1,23 @@
 package com.irrationalstudio.thefootballmaniac;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.irrationalstudio.adapters.MyCustomAdapter;
+import com.irrationalstudio.application.MyApplication;
 import com.irrationalstudio.constants.ApplicationConstants;
 import com.irrationalstudio.services.LeagueTableAsyncTask;
 import com.irrationalstudio.util.InternetConnectivity;
-
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getName();
     private ListView listView;
+    private String action;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,71 +33,95 @@ public class MainActivity extends AppCompatActivity {
 
                 if (InternetConnectivity.isConnected(getApplicationContext())) {
 
-                    LeagueTableAsyncTask leagueTableAsyncTask = new LeagueTableAsyncTask();
+                    LeagueTableAsyncTask leagueTableAsyncTask = new LeagueTableAsyncTask(MainActivity.this);
 
                     switch ((int) id) {
                         case 0:
-                            // Eredivisie
-                            leagueTableAsyncTask.execute(ApplicationConstants.ID_EREDIVISIE, getApplicationContext());
+                            // 1. Bundesliga
+                            leagueTableAsyncTask.execute(ApplicationConstants.ID_BUNDESLIGA1);
+                            MyApplication.setAction(ApplicationConstants.ACTION_BUNDESLIGA1);
                             break;
 
                         case 1:
                             // 2. Bundesliga
-                            leagueTableAsyncTask.execute(ApplicationConstants.ID_BUNDESLIGA2, getApplicationContext());
+                            leagueTableAsyncTask.execute(ApplicationConstants.ID_BUNDESLIGA2);
+                            MyApplication.setAction(ApplicationConstants.ACTION_BUNDESLIGA2);
                             break;
 
                         case 2:
-                            // Champions League
-                            leagueTableAsyncTask.execute(ApplicationConstants.ID_CHAMPIONSLEAGE, getApplicationContext());
+                            // Ligue 1
+                            leagueTableAsyncTask.execute(ApplicationConstants.ID_LIGE1);
+                            MyApplication.setAction(ApplicationConstants.ACTION_LIGUE1);
                             break;
 
                         case 3:
-                            // Primera Division
-                            leagueTableAsyncTask.execute(ApplicationConstants.ID_PRIMERA_DIVISION, getApplicationContext());
+                            // Ligue 2
+                            leagueTableAsyncTask.execute(ApplicationConstants.ID_LIGE2);
+                            MyApplication.setAction(ApplicationConstants.ACTION_LIGUE2);
                             break;
 
                         case 4:
-                            // Ligue 1
-                            leagueTableAsyncTask.execute(ApplicationConstants.ID_LIGE1, getApplicationContext());
+                            // Premier League
+                            leagueTableAsyncTask.execute(ApplicationConstants.ID_PREMIER_LEAGUE);
+                            MyApplication.setAction(ApplicationConstants.ACTION_PREMIER_LEAGUE);
                             break;
 
                         case 5:
-                            // 3. Bundesliga
-                            leagueTableAsyncTask.execute(ApplicationConstants.ID_BUNDESLIGA3, getApplicationContext());
+                            // Primera Division
+                            leagueTableAsyncTask.execute(ApplicationConstants.ID_PRIMERA_DIVISION);
+                            MyApplication.setAction(ApplicationConstants.ACTION_PRIMERA_DIVISION);
                             break;
 
                         case 6:
-                            // Serie A
-                            leagueTableAsyncTask.execute(ApplicationConstants.ID_SERIEA, getApplicationContext());
+                            // Segunda Division
+                            leagueTableAsyncTask.execute(ApplicationConstants.ID_SEGUNDADIVISION);
+                            MyApplication.setAction(ApplicationConstants.ACTION_SEGUNDA_DIVISION);
                             break;
 
                         case 7:
-                            // 1. Bundesliga
-                            leagueTableAsyncTask.execute(ApplicationConstants.ID_BUNDESLIGA1, getApplicationContext());
+                            // Serie A
+                            leagueTableAsyncTask.execute(ApplicationConstants.ID_SERIEA);
+                            MyApplication.setAction(ApplicationConstants.ACTION_SERIE_A);
                             break;
 
                         case 8:
-                            // Premier League
-                            leagueTableAsyncTask.execute(ApplicationConstants.PREMIER_LEAGUE, getApplicationContext());
+                            // Primeira Liga
+                            leagueTableAsyncTask.execute(ApplicationConstants.ID_PRIMEIRA_LIGA);
+                            MyApplication.setAction(ApplicationConstants.ACTION_PRIMERA_LIGA);
                             break;
 
                         case 9:
-                            // Segunda Division
-                            leagueTableAsyncTask.execute(ApplicationConstants.ID_SEGUNDADIVISION, getApplicationContext());
+                            // 3. Bundesliga
+                            leagueTableAsyncTask.execute(ApplicationConstants.ID_BUNDESLIGA3);
+                            MyApplication.setAction(ApplicationConstants.ACTION_BUNDESLIGA3);
                             break;
 
                         case 10:
-                            // Ligue 2
-                            leagueTableAsyncTask.execute(ApplicationConstants.ID_LIGE2, getApplicationContext());
+                            // Eredivisie
+                            leagueTableAsyncTask.execute(ApplicationConstants.ID_EREDIVISIE);
+                            MyApplication.setAction(ApplicationConstants.ACTION_EREDIVISIE);
                             break;
 
                         case 11:
-                            // Primeira Liga
-                            leagueTableAsyncTask.execute(ApplicationConstants.ID_PRIMEIRA_LIGA, getApplicationContext());
+                            // Champions League
+                            Toast toast = Toast.makeText(getApplication(), R.string.service_under_construction, Toast.LENGTH_LONG);
+                            View v = toast.getView();
+                            v.setBackgroundResource(R.color.colorGreenLight);
+                            toast.show();
+                            break;
+
+                        default:
+                            Toast toastNoService = Toast.makeText(getApplication(), R.string.something_wrong, Toast.LENGTH_LONG);
+                            View toastView = toastNoService.getView();
+                            toastView.setBackgroundResource(R.color.colorGreenLight);
+                            toastNoService.show();
                             break;
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), R.string.no_internet, Toast.LENGTH_LONG).show();
+                    Toast toast = Toast.makeText(getApplication(), R.string.no_internet, Toast.LENGTH_LONG);
+                    View v = toast.getView();
+                    v.setBackgroundResource(R.color.colorGreenLight);
+                    toast.show();
                 }
             }
         });

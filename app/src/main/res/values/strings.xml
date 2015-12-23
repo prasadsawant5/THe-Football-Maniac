@@ -1,9 +1,13 @@
 <resources>
+    <string name="loading">Loading...</string>
     <string name="app_name">The Football Maniac</string>
     <string name="total_teams">Total number of teams: </string>
     <string name="total_games">Total number of games: </string>
 
     <string name="no_internet">No internet connection found.</string>
+    <string name="connection_timeout">Connection timeout. Sorry!</string>
+    <string name="something_wrong">"There is something wrong with the server! Please try again later.</string>
+    <string name="service_under_construction">This service is currently under construction.</string>
 
     <string name="bundesliga">Bundesliga</string>
     <string name="ligue1">Ligue 1</string>
@@ -15,4 +19,17 @@
     <string name="primeira_liga">Primeira Liga</string>
     <string name="eredivisie">Eredivisie</string>
     <string name="champions_league">Champions League</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="action_settings">Settings</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="section_format">Unable to instantiate! Please try again later.</string>
+    <string name="hello_league_fragment">Hello league table fragment</string>
+    <string name="hello_fixture_fragment">Hello fixtures fragment</string>
+    <string name="hello_teams_fragment">Hello teams fragment</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_league_tabbed">The Football Maniac</string>
+
+
 </resources>
