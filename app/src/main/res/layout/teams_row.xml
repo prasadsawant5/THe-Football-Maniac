@@ -20,5 +20,6 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/iv_team_logo"
         android:textColor="@color/colorGreenLight"
-        android:layout_marginTop="35dp" />
+        android:layout_marginTop="35dp"
+        android:textSize="15sp" />
 </RelativeLayout>

@@ -18,6 +18,16 @@ public class ApplicationConstants {
     public static final String TEAMS = "teams";
     public static final String NO_OF_TEAMS = "numberOfTeams";
     public static final String NO_OF_GAMES = "numberOfGames";
+    public static final String COUNT = "count";
+    public static final String FIXTURES = "fixtures";
+    public static final String FIXTURES_LENGTH = "fixturesLength";
+    public static final String STATUS = "status";
+    public static final String FINISHED = "FINISHED";
+    public static final String RESULT = "result";
+    public static final String HOME_TEAM_NAME = "homeTeamName";
+    public static final String AWAY_TEAM_NAME = "awayTeamName";
+    public static final String GOALS_HOME_TEAM = "goalsHomeTeam";
+    public static final String GOALS_AWAY_TEAM = "goalsAwayTeam";
 
     public static final String json_bundesliga1 = "1. Bundesliga";
     public static final String json_bundesliga2 = "2. Bundesliga";

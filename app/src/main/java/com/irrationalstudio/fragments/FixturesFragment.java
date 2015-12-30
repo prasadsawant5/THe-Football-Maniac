@@ -2,21 +2,24 @@ package com.irrationalstudio.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import com.irrationalstudio.adapters.FixturesCustomAdapter;
+import com.irrationalstudio.adapters.LeagueTableCustomAdapter;
+import com.irrationalstudio.application.MyApplication;
+import com.irrationalstudio.constants.ApplicationConstants;
+import com.irrationalstudio.storage.MySharedPreferences;
 import com.irrationalstudio.thefootballmaniac.R;
 
 
 public class FixturesFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private static final String TAG = FixturesFragment.class.getName();
+    private ListView listView;
 
     //private OnFragmentInteractionListener mListener;
 
@@ -37,10 +40,6 @@ public class FixturesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -48,6 +47,32 @@ public class FixturesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_fixtures, container, false);
+        listView = (ListView) rootView.findViewById(R.id.listView3);
+
+
+        if (MyApplication.getAction().equals(ApplicationConstants.ACTION_BUNDESLIGA1))
+            listView.setAdapter(new FixturesCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.BUNDESLIGA_1_PREFERENCES, Integer.parseInt(MySharedPreferences.getFixturesLenght(getActivity().getApplicationContext(), ApplicationConstants.BUNDESLIGA_1_PREFERENCES, ApplicationConstants.FIXTURES_LENGTH))));
+        else if (MyApplication.getAction().equals(ApplicationConstants.ACTION_BUNDESLIGA2))
+            listView.setAdapter(new FixturesCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.BUNDESLIGA_2_PREFERENCES, Integer.parseInt(MySharedPreferences.getFixturesLenght(getActivity().getApplicationContext(), ApplicationConstants.BUNDESLIGA_2_PREFERENCES, ApplicationConstants.FIXTURES_LENGTH))));
+        else if (MyApplication.getAction().equals(ApplicationConstants.ACTION_BUNDESLIGA3))
+            listView.setAdapter(new FixturesCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.BUNDESLIGA_3_PREFERENCES, Integer.parseInt(MySharedPreferences.getFixturesLenght(getActivity().getApplicationContext(), ApplicationConstants.BUNDESLIGA_3_PREFERENCES, ApplicationConstants.FIXTURES_LENGTH))));
+        else if (MyApplication.getAction().equals(ApplicationConstants.ACTION_LIGUE1))
+            listView.setAdapter(new FixturesCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.LIGUE_1_PREFERENCES, Integer.parseInt(MySharedPreferences.getFixturesLenght(getActivity().getApplicationContext(), ApplicationConstants.LIGUE_1_PREFERENCES, ApplicationConstants.FIXTURES_LENGTH))));
+        else if (MyApplication.getAction().equals(ApplicationConstants.ACTION_LIGUE2))
+            listView.setAdapter(new FixturesCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.LIGUE_2_PREFERENCES, Integer.parseInt(MySharedPreferences.getFixturesLenght(getActivity().getApplicationContext(), ApplicationConstants.LIGUE_2_PREFERENCES, ApplicationConstants.FIXTURES_LENGTH))));
+        else if (MyApplication.getAction().equals(ApplicationConstants.ACTION_PREMIER_LEAGUE))
+            listView.setAdapter(new FixturesCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.PREMIER_LEAGUE_PREFERENCES, Integer.parseInt(MySharedPreferences.getFixturesLenght(getActivity().getApplicationContext(), ApplicationConstants.PREMIER_LEAGUE_PREFERENCES, ApplicationConstants.FIXTURES_LENGTH))));
+        else if (MyApplication.getAction().equals(ApplicationConstants.ACTION_PRIMERA_DIVISION))
+            listView.setAdapter(new FixturesCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.PRIMERA_DIVISION_PREFERENCES, Integer.parseInt(MySharedPreferences.getFixturesLenght(getActivity().getApplicationContext(), ApplicationConstants.PRIMERA_DIVISION_PREFERENCES, ApplicationConstants.FIXTURES_LENGTH))));
+        else if (MyApplication.getAction().equals(ApplicationConstants.ACTION_SEGUNDA_DIVISION))
+            listView.setAdapter(new FixturesCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.SEGUNDA_DIVISION_PREFERENCES, Integer.parseInt(MySharedPreferences.getFixturesLenght(getActivity().getApplicationContext(), ApplicationConstants.SEGUNDA_DIVISION_PREFERENCES, ApplicationConstants.FIXTURES_LENGTH))));
+        else if (MyApplication.getAction().equals(ApplicationConstants.ACTION_SERIE_A))
+            listView.setAdapter(new FixturesCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.SERIEA_PREFERENCES, Integer.parseInt(MySharedPreferences.getFixturesLenght(getActivity().getApplicationContext(), ApplicationConstants.SERIEA_PREFERENCES, ApplicationConstants.FIXTURES_LENGTH))));
+        else if (MyApplication.getAction().equals(ApplicationConstants.ACTION_PRIMERA_LIGA))
+            listView.setAdapter(new FixturesCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.PRIMEIRA_LIGA_PREFERENCES, Integer.parseInt(MySharedPreferences.getFixturesLenght(getActivity().getApplicationContext(), ApplicationConstants.PRIMEIRA_LIGA_PREFERENCES, ApplicationConstants.FIXTURES_LENGTH))));
+        else
+            listView.setAdapter(new FixturesCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.EREDIVISIE_PREFERENCES, Integer.parseInt(MySharedPreferences.getFixturesLenght(getActivity().getApplicationContext(), ApplicationConstants.EREDIVISIE_PREFERENCES, ApplicationConstants.FIXTURES_LENGTH))));
+
         return rootView;
     }
 

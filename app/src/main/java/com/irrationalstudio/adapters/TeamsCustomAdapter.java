@@ -40,7 +40,7 @@ public class TeamsCustomAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return position;
+        return teams.get(position);
     }
 
     @Override
@@ -60,7 +60,6 @@ public class TeamsCustomAdapter extends BaseAdapter {
 
         ImageView ivTeamCrest = (ImageView) row.findViewById(R.id.iv_team_logo);
 
-        Log.d(TAG, teams.get(position));
 
         if ((teamCrest.size() != 0) && (teamCrest.get(teams.get(position)) != null))
             ivTeamCrest.setImageResource(Integer.parseInt(teamCrest.get(teams.get(position))));

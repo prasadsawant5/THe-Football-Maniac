@@ -10,7 +10,7 @@ public class ServerConstants {
     public static final String LEAGUE_TABLE = "leagueTable/";
     public static final String TEAMS = "teams/";
 
-    public static final String URL1 = "http://api.football-data.org/v1/soccerseasons/";
-    public static final String SEASON1 = "?seasons=2015";
+    public static final String MAIN_URL = "http://api.football-data.org/v1/soccerseasons/";
+    public static final String FIXTURES = "/fixtures?matchday=";
 
 }

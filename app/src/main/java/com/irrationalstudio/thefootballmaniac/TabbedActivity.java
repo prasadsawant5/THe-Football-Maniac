@@ -1,5 +1,7 @@
 package com.irrationalstudio.thefootballmaniac;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -16,6 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.irrationalstudio.application.MyApplication;
+import com.irrationalstudio.constants.ApplicationConstants;
 import com.irrationalstudio.fragments.FixturesFragment;
 import com.irrationalstudio.fragments.LeagueTableFragment;
 import com.irrationalstudio.fragments.TeamsFragment;
@@ -121,6 +125,129 @@ public class TabbedActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        SharedPreferences sharedPreferences;
+        SharedPreferences.Editor editor;
+
+        switch (MyApplication.getAction()) {
+
+            case ApplicationConstants.ACTION_BUNDESLIGA1:
+
+                sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.BUNDESLIGA_1_PREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+
+                editor.clear();
+                editor.apply();
+
+                break;
+
+            case ApplicationConstants.ACTION_BUNDESLIGA2:
+
+                sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.BUNDESLIGA_2_PREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+
+                editor.clear();
+                editor.apply();
+
+                break;
+
+            case ApplicationConstants.ACTION_BUNDESLIGA3:
+
+                sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.BUNDESLIGA_3_PREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+
+                editor.clear();
+                editor.apply();
+
+                break;
+
+            case ApplicationConstants.ACTION_LIGUE1:
+
+                sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.LIGUE_1_PREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+
+                editor.clear();
+                editor.apply();
+
+                break;
+
+            case ApplicationConstants.ACTION_LIGUE2:
+
+                sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.LIGUE_2_PREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+
+                editor.clear();
+                editor.apply();
+
+                break;
+
+            case ApplicationConstants.ACTION_PREMIER_LEAGUE:
+
+                sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.PREMIER_LEAGUE_PREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+
+                editor.clear();
+                editor.apply();
+
+                break;
+
+            case ApplicationConstants.ACTION_PRIMERA_DIVISION:
+
+                sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.PRIMERA_DIVISION_PREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+
+                editor.clear();
+                editor.apply();
+
+                break;
+
+            case ApplicationConstants.ACTION_SEGUNDA_DIVISION:
+
+                sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.SEGUNDA_DIVISION_PREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+
+                editor.clear();
+                editor.apply();
+
+                break;
+
+            case ApplicationConstants.ACTION_SERIE_A:
+
+                sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.SERIEA_PREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+
+                editor.clear();
+                editor.apply();
+
+                break;
+
+            case ApplicationConstants.ACTION_PRIMERA_LIGA:
+
+                sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.PRIMEIRA_LIGA_PREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+
+                editor.clear();
+                editor.apply();
+
+                break;
+
+            case ApplicationConstants.ACTION_EREDIVISIE:
+
+                sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.EREDIVISIE_PREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+
+                editor.clear();
+                editor.apply();
+
+                break;
+        }
+
+        finish();
+    }
+
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -137,13 +264,10 @@ public class TabbedActivity extends AppCompatActivity {
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    Log.d(TAG, String.valueOf(position));
                     return LeagueTableFragment.newInstance();
                 case 1:
-                    Log.d(TAG, String.valueOf(position));
                     return FixturesFragment.newInstance();
                 case 2:
-                    Log.d(TAG, String.valueOf(position));
                     return TeamsFragment.newInstance();
             }
             return PlaceholderFragment.newInstance(position + 1);

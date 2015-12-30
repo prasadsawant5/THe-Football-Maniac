@@ -49,8 +49,6 @@ public class LeagueTableFragment extends Fragment {
 
         listView = (ListView) rootView.findViewById(R.id.listView2);
 
-        Log.d(TAG, "Action: " + MyApplication.getAction());
-        Log.d(TAG, MySharedPreferences.getLeagueTableInfo(getActivity().getApplicationContext(), ApplicationConstants.EREDIVISIE_PREFERENCES, ApplicationConstants.LENGTH));
 
         if (MyApplication.getAction().equals(ApplicationConstants.ACTION_BUNDESLIGA1))
             listView.setAdapter(new LeagueTableCustomAdapter(getActivity().getApplicationContext(), ApplicationConstants.BUNDESLIGA_1_PREFERENCES, Integer.parseInt(MySharedPreferences.getLeagueTableInfo(getActivity().getApplicationContext(), ApplicationConstants.BUNDESLIGA_1_PREFERENCES, ApplicationConstants.LENGTH))));

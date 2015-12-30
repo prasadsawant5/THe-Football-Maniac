@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.irrationalstudio.thefootballmaniac.R;
@@ -18,14 +20,17 @@ public class LeagueTableAsyncTask extends AsyncTask<Object, Void, Boolean> {
 
     private static final String TAG = LeagueTableAsyncTask.class.getName();
     private Context context;
+    private ListView listView;
+    private ImageView ivProgressBar;
 
-    public LeagueTableAsyncTask(Context context) {
+    public LeagueTableAsyncTask(Context context, ListView listView, ImageView ivProgressBar) {
         this.context = context;
+        this.listView = listView;
+        this.ivProgressBar = ivProgressBar;
     }
 
     @Override
     protected Boolean doInBackground(Object... params) {
-        Log.d(TAG, params[0].toString());
 
         if (HttpManager.instanceOf().isLeagueTableSaved(params[0].toString(), context))
             return true;
@@ -38,7 +43,10 @@ public class LeagueTableAsyncTask extends AsyncTask<Object, Void, Boolean> {
         //super.onPostExecute(aBoolean);
 
         if (aBoolean) {
-            Log.d(TAG, "true");
+
+            ivProgressBar.clearAnimation();
+            ivProgressBar.setVisibility(View.GONE);
+            listView.setEnabled(true);
 
             Intent intent = new Intent(context, TabbedActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -46,7 +54,6 @@ public class LeagueTableAsyncTask extends AsyncTask<Object, Void, Boolean> {
 
         }
         else {
-            Log.d(TAG, "false");
 
             Toast toast = Toast.makeText(context, R.string.something_wrong, Toast.LENGTH_LONG);
             View view = toast.getView();

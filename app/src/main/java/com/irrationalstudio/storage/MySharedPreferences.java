@@ -2,6 +2,8 @@ package com.irrationalstudio.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
+import android.util.Log;
 
 import com.irrationalstudio.constants.ApplicationConstants;
 import com.irrationalstudio.thefootballmaniac.R;
@@ -80,6 +82,16 @@ public class MySharedPreferences {
     }
 
     public static void setTeams(Context context, String preferenceName, String key, String value) {
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(key, value);
+        editor.apply();
+
+    }
+
+    public static void setFixtures(Context context, String preferenceName, String key, String value) {
 
         SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -397,6 +409,72 @@ public class MySharedPreferences {
         }
 
         return positions;
+    }
+
+    public static String getFixturesLenght(Context context, String preferenceName, String key) {
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+
+        return sharedPreferences.getString(key, null);
+
+    }
+
+    public static ArrayList getHomeTeamNames(Context context, String preferenceName, int length) {
+        ArrayList<String> homeTeamNames = new ArrayList<>();
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+
+        for (int i = 0; i < length; i++) {
+            homeTeamNames.add(i, sharedPreferences.getString(ApplicationConstants.HOME_TEAM_NAME + String.valueOf(i), null));
+        }
+
+        return homeTeamNames;
+    }
+
+    public static ArrayList getAwayTeamNames(Context context, String preferenceName, int length) {
+        ArrayList<String> awayTeamNames = new ArrayList<>();
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+
+        for (int i = 0; i < length; i++) {
+            awayTeamNames.add(i, sharedPreferences.getString(ApplicationConstants.AWAY_TEAM_NAME + String.valueOf(i), null));
+        }
+
+        return awayTeamNames;
+    }
+
+    public static ArrayList getHomeGoals(Context context, String preferenceName, int length) {
+        ArrayList<String> homeGoals = new ArrayList<>();
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+
+        for (int i = 0; i < length; i++) {
+            String goals = sharedPreferences.getString(ApplicationConstants.GOALS_HOME_TEAM + String.valueOf(i), null);
+
+            if (!TextUtils.isEmpty(goals))
+                homeGoals.add(i, goals);
+            else
+                break;
+        }
+
+        return homeGoals;
+    }
+
+    public static ArrayList getAwayGoals(Context context, String preferenceName, int length) {
+        ArrayList<String> awayGoals = new ArrayList<>();
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+
+        for (int i = 0; i < length; i++) {
+            String goals = sharedPreferences.getString(ApplicationConstants.GOALS_AWAY_TEAM + String.valueOf(i), null);
+
+            if (!TextUtils.isEmpty(goals))
+                awayGoals.add(i, goals);
+            else
+                break;
+        }
+
+        return awayGoals;
     }
 
 

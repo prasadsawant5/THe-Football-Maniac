@@ -43,8 +43,6 @@ public class HttpManager {
         try {
             URL url = new URL(ServerConstants.URL + ServerConstants.SEASON);
 
-            Log.d(TAG, url.toString());
-
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setConnectTimeout(ApplicationConstants.TIMEOUT);
@@ -61,7 +59,6 @@ public class HttpManager {
 
             stringBuilder.append("}");
 
-            Log.d(TAG, stringBuilder.toString());
 
             if (bufferedReader != null) {
                 bufferedReader.close();
@@ -162,7 +159,6 @@ public class HttpManager {
         try {
 
             URL url = new URL(ServerConstants.URL + ServerConstants.LEAGUE_TABLE + id);
-            Log.d(TAG, url.toString());
 
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
@@ -187,6 +183,7 @@ public class HttpManager {
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.BUNDESLIGA_1_PREFERENCES, ApplicationConstants.MATCHDAY, String.valueOf(matchday));
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.BUNDESLIGA_1_PREFERENCES, ApplicationConstants.LENGTH, String.valueOf(length));
                 HttpManager.instanceOf().isTeamSaved(id, context, ApplicationConstants.BUNDESLIGA_1_PREFERENCES);
+                HttpManager.instanceOf().isFixturesSaved(id, context, ApplicationConstants.BUNDESLIGA_1_PREFERENCES);
 
                 for (int i = 0; i < length; i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -197,6 +194,7 @@ public class HttpManager {
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.BUNDESLIGA_2_PREFERENCES, ApplicationConstants.MATCHDAY, String.valueOf(matchday));
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.BUNDESLIGA_2_PREFERENCES, ApplicationConstants.LENGTH, String.valueOf(length));
                 HttpManager.instanceOf().isTeamSaved(id, context, ApplicationConstants.BUNDESLIGA_2_PREFERENCES);
+                HttpManager.instanceOf().isFixturesSaved(id, context, ApplicationConstants.BUNDESLIGA_2_PREFERENCES);
 
                 for (int i = 0; i < length; i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -206,6 +204,7 @@ public class HttpManager {
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.BUNDESLIGA_3_PREFERENCES, ApplicationConstants.MATCHDAY, String.valueOf(matchday));
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.BUNDESLIGA_3_PREFERENCES, ApplicationConstants.LENGTH, String.valueOf(length));
                 HttpManager.instanceOf().isTeamSaved(id, context, ApplicationConstants.BUNDESLIGA_3_PREFERENCES);
+                HttpManager.instanceOf().isFixturesSaved(id, context, ApplicationConstants.BUNDESLIGA_3_PREFERENCES);
 
                 for (int i = 0; i < length; i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -215,6 +214,7 @@ public class HttpManager {
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.LIGUE_1_PREFERENCES, ApplicationConstants.MATCHDAY, String.valueOf(matchday));
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.LIGUE_1_PREFERENCES, ApplicationConstants.LENGTH, String.valueOf(length));
                 HttpManager.instanceOf().isTeamSaved(id, context, ApplicationConstants.LIGUE_1_PREFERENCES);
+                HttpManager.instanceOf().isFixturesSaved(id, context, ApplicationConstants.LIGUE_1_PREFERENCES);
 
                 for (int i = 0; i < length; i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -224,6 +224,7 @@ public class HttpManager {
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.LIGUE_2_PREFERENCES, ApplicationConstants.MATCHDAY, String.valueOf(matchday));
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.LIGUE_2_PREFERENCES, ApplicationConstants.LENGTH, String.valueOf(length));
                 HttpManager.instanceOf().isTeamSaved(id, context, ApplicationConstants.LIGUE_2_PREFERENCES);
+                HttpManager.instanceOf().isFixturesSaved(id, context, ApplicationConstants.LIGUE_2_PREFERENCES);
 
                 for (int i = 0; i < length; i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -233,6 +234,7 @@ public class HttpManager {
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.PREMIER_LEAGUE_PREFERENCES, ApplicationConstants.MATCHDAY, String.valueOf(matchday));
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.PREMIER_LEAGUE_PREFERENCES, ApplicationConstants.LENGTH, String.valueOf(length));
                 HttpManager.instanceOf().isTeamSaved(id, context, ApplicationConstants.PREMIER_LEAGUE_PREFERENCES);
+                HttpManager.instanceOf().isFixturesSaved(id, context, ApplicationConstants.PREMIER_LEAGUE_PREFERENCES);
 
                 for (int i = 0; i < length; i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -242,6 +244,7 @@ public class HttpManager {
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.PRIMERA_DIVISION_PREFERENCES, ApplicationConstants.MATCHDAY, String.valueOf(matchday));
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.PRIMERA_DIVISION_PREFERENCES, ApplicationConstants.LENGTH, String.valueOf(length));
                 HttpManager.instanceOf().isTeamSaved(id, context, ApplicationConstants.PRIMERA_DIVISION_PREFERENCES);
+                HttpManager.instanceOf().isFixturesSaved(id, context, ApplicationConstants.PRIMERA_DIVISION_PREFERENCES);
 
                 for (int i = 0; i < length; i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -251,6 +254,7 @@ public class HttpManager {
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.SEGUNDA_DIVISION_PREFERENCES, ApplicationConstants.MATCHDAY, String.valueOf(matchday));
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.SEGUNDA_DIVISION_PREFERENCES, ApplicationConstants.LENGTH, String.valueOf(length));
                 HttpManager.instanceOf().isTeamSaved(id, context, ApplicationConstants.SEGUNDA_DIVISION_PREFERENCES);
+                HttpManager.instanceOf().isFixturesSaved(id, context, ApplicationConstants.SEGUNDA_DIVISION_PREFERENCES);
 
                 for (int i = 0; i < length; i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -260,6 +264,7 @@ public class HttpManager {
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.SERIEA_PREFERENCES, ApplicationConstants.MATCHDAY, String.valueOf(matchday));
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.SERIEA_PREFERENCES, ApplicationConstants.LENGTH, String.valueOf(length));
                 HttpManager.instanceOf().isTeamSaved(id, context, ApplicationConstants.SERIEA_PREFERENCES);
+                HttpManager.instanceOf().isFixturesSaved(id, context, ApplicationConstants.SERIEA_PREFERENCES);
 
                 for (int i = 0; i < length; i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -269,6 +274,7 @@ public class HttpManager {
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.PRIMEIRA_LIGA_PREFERENCES, ApplicationConstants.MATCHDAY, String.valueOf(matchday));
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.PRIMEIRA_LIGA_PREFERENCES, ApplicationConstants.LENGTH, String.valueOf(length));
                 HttpManager.instanceOf().isTeamSaved(id, context, ApplicationConstants.PRIMEIRA_LIGA_PREFERENCES);
+                HttpManager.instanceOf().isFixturesSaved(id, context, ApplicationConstants.PRIMEIRA_LIGA_PREFERENCES);
 
                 for (int i = 0; i < length; i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -278,6 +284,7 @@ public class HttpManager {
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.EREDIVISIE_PREFERENCES, ApplicationConstants.MATCHDAY, String.valueOf(matchday));
                 MySharedPreferences.setLeagueTableInfo(context, ApplicationConstants.EREDIVISIE_PREFERENCES, ApplicationConstants.LENGTH, String.valueOf(length));
                 HttpManager.instanceOf().isTeamSaved(id, context, ApplicationConstants.EREDIVISIE_PREFERENCES);
+                HttpManager.instanceOf().isFixturesSaved(id, context, ApplicationConstants.EREDIVISIE_PREFERENCES);
 
                 for (int i = 0; i < length; i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
@@ -285,7 +292,6 @@ public class HttpManager {
                 }
             }
 
-            Log.d(TAG, stringBuilder.toString());
 
             if (bufferedReader != null) {
                 bufferedReader.close();
@@ -306,7 +312,6 @@ public class HttpManager {
         try {
 
             URL url = new URL(ServerConstants.URL + ServerConstants.TEAMS + id);
-            Log.d(TAG, url.toString());
 
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
@@ -335,6 +340,53 @@ public class HttpManager {
 
 
         } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void isFixturesSaved(String id, Context context, String preferenceName) {
+        try {
+
+            URL url = new URL(ServerConstants.MAIN_URL + id + ServerConstants.FIXTURES + MySharedPreferences.getLeagueTableInfo(context, preferenceName, ApplicationConstants.MATCHDAY));
+
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setRequestProperty("Content-Type", "application/json");
+            httpURLConnection.setConnectTimeout(ApplicationConstants.TIMEOUT);
+
+            bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+
+            JSONObject jsonObject = new JSONObject(stringBuilder.toString());
+            JSONArray jsonArray = jsonObject.getJSONArray(ApplicationConstants.FIXTURES);
+
+            int length = jsonObject.getInt(ApplicationConstants.COUNT);
+
+            for (int i = 0; i < length; i++) {
+                JSONObject object = jsonArray.getJSONObject(i);
+                MySharedPreferences.setFixtures(context, preferenceName, ApplicationConstants.FIXTURES_LENGTH, String.valueOf(length));
+                MySharedPreferences.setFixtures(context, preferenceName, ApplicationConstants.HOME_TEAM_NAME + String.valueOf(i), object.getString(ApplicationConstants.HOME_TEAM_NAME));
+                MySharedPreferences.setFixtures(context, preferenceName, ApplicationConstants.AWAY_TEAM_NAME + String.valueOf(i), object.getString(ApplicationConstants.AWAY_TEAM_NAME));
+
+                if (object.getString(ApplicationConstants.STATUS).equals(ApplicationConstants.FINISHED)) {
+
+                    JSONObject obj = object.getJSONObject(ApplicationConstants.RESULT);
+
+                    MySharedPreferences.setFixtures(context, preferenceName, ApplicationConstants.GOALS_HOME_TEAM + String.valueOf(i), String.valueOf(obj.getInt(ApplicationConstants.GOALS_HOME_TEAM)));
+                    MySharedPreferences.setFixtures(context, preferenceName, ApplicationConstants.GOALS_AWAY_TEAM + String.valueOf(i), String.valueOf(obj.getInt(ApplicationConstants.GOALS_AWAY_TEAM)));
+
+                }
+            }
+
+            if (bufferedReader != null) {
+                bufferedReader.close();
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

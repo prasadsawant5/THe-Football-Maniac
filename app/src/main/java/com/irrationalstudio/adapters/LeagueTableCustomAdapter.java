@@ -42,7 +42,7 @@ public class LeagueTableCustomAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return position;
+        return positions.get(position);
     }
 
     @Override
@@ -62,7 +62,6 @@ public class LeagueTableCustomAdapter extends BaseAdapter {
 
         ImageView ivTeamCrest = (ImageView) row.findViewById(R.id.iv_team_logo);
 
-        //Log.d(TAG, positions.get(position));
 
         if ((teamCrest.size() != 0) && (teamCrest.get(positions.get(position)) != null))
             ivTeamCrest.setImageResource(Integer.parseInt(teamCrest.get(positions.get(position))));

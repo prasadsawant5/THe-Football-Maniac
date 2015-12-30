@@ -40,7 +40,6 @@ public class SplashActivity extends Activity {
         imageView = (ImageView) findViewById(R.id.iv_football);
         imageView.startAnimation(animation);
 
-        Log.d(TAG, String.valueOf(InternetConnectivity.isConnected(getApplicationContext())));
         if (InternetConnectivity.isConnected(getApplicationContext())) {
             Log.d(TAG, "Starting service");
             LeagueAsyncTask leagueAsyncTask = new LeagueAsyncTask(SplashActivity.this);
@@ -66,4 +65,5 @@ public class SplashActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
 }

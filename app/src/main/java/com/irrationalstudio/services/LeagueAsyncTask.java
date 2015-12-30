@@ -25,10 +25,8 @@ public class LeagueAsyncTask extends AsyncTask<Object, Void, Boolean> {
         //context = (Context) params[0];
 
         if (HttpManager.instanceOf().isSeasonSaved(context)) {
-            Log.d(TAG, "Success");
             return true;
         } else {
-            Log.d(TAG, "failure");
             return false;
         }
     }
@@ -41,7 +39,6 @@ public class LeagueAsyncTask extends AsyncTask<Object, Void, Boolean> {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         if (aBoolean) {
-
             context.startActivity(new Intent(context, MainActivity.class));
         }
     }

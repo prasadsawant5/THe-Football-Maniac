@@ -26,8 +26,7 @@ public class MyCustomAdapter extends BaseAdapter {
     private ArrayList<String> arrayList;
 
     public MyCustomAdapter(Context context) {
-
-        Log.d(TAG, "MyCustomAdapter");
+        
         this.context = context;
 
         arrayList = MySharedPreferences.getSeason(context);
