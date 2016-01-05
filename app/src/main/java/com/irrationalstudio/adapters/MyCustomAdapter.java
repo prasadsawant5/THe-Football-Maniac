@@ -67,6 +67,7 @@ public class MyCustomAdapter extends BaseAdapter {
         tvLeagueTitle.setText(arrayList.get(position));
 
 
+
         if (arrayList.get(position).contains(ApplicationConstants.json_bundesliga1)) {
             tvTeams.setText("Total number of teams: " + MySharedPreferences.getSeasonInfo(context, ApplicationConstants.BUNDESLIGA_1_PREFERENCES, ApplicationConstants.NO_OF_TEAMS));
             tvGames.setText("Total number of games: " + MySharedPreferences.getSeasonInfo(context, ApplicationConstants.BUNDESLIGA_1_PREFERENCES, ApplicationConstants.NO_OF_GAMES));

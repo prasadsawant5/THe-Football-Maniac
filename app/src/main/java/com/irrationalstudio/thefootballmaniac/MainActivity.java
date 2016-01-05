@@ -1,5 +1,7 @@
 package com.irrationalstudio.thefootballmaniac;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -167,5 +169,90 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        SharedPreferences sharedPreferences;
+        SharedPreferences.Editor editor;
+
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.BUNDESLIGA_1_PREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.apply();
+
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.BUNDESLIGA_2_PREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.apply();
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.BUNDESLIGA_3_PREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.apply();
+
+
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.LIGUE_1_PREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.apply();
+
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.LIGUE_2_PREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.apply();
+
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.PREMIER_LEAGUE_PREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.apply();
+
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.PRIMERA_DIVISION_PREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.apply();
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.SEGUNDA_DIVISION_PREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.apply();
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.SERIEA_PREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.apply();
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.PRIMEIRA_LIGA_PREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.apply();
+
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(ApplicationConstants.EREDIVISIE_PREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.apply();
+
+
+        finish();
     }
 }
