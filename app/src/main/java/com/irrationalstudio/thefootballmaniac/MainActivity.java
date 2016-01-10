@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //MyApplication.getInstance().trackScreenView("MainActivity");
+
         ivProgressBar = (ImageView) findViewById(R.id.iv_progress_bar);
         animation = AnimationUtils.loadAnimation(this, R.anim.rotate);
 
